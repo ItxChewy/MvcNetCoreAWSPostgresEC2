@@ -6,10 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-string connectionString = builder.Configuration.GetConnectionString("Postgres");
+string connectionString = builder.Configuration.GetConnectionString("MariaDb");
 builder.Services.AddTransient<RepositoryHospitales>();
 builder.Services.AddDbContext<HospitalContext>(
-    options => options.UseNpgsql(connectionString)
+    options => options.UseMySQL(connectionString)
     );
 
 
